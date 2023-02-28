@@ -10,10 +10,3 @@ class ItemController {
   int quantityShouldBeSelected;
   final RxList<Product> products;
 }
-
-class ItemViewModel {
-  int quantityShouldBeSelected;
-  ItemViewModel({
-    required this.quantityShouldBeSelected,
-  });
-}

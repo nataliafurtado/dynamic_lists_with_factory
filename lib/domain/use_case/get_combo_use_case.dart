@@ -6,7 +6,7 @@ class GetComboUseCase {
   Combo call() => Combo(
         itemFromApi: [
           Item(
-            quantityShouldBeSelected: 3,
+            quantityShouldBeSelected: 1,
             productsFromApi: [
               Product(
                 name: 'Perfume A',
@@ -19,7 +19,7 @@ class GetComboUseCase {
             ],
           ),
           Item(
-            quantityShouldBeSelected: 2,
+            quantityShouldBeSelected: 3,
             productsFromApi: [
               Product(
                 name: 'Batom A',

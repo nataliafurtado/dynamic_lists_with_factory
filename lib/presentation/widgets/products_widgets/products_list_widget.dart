@@ -1,4 +1,4 @@
-import 'package:dynamic_lists_with_factory/presentation/controllers/controller.dart';
+import 'package:dynamic_lists_with_factory/presentation/controllers/view_controller.dart';
 import 'package:dynamic_lists_with_factory/presentation/widgets/products_widgets/products_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -14,7 +14,7 @@ class ProductsListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const space = 20.0;
-    final Controller controller = GetIt.I.get<Controller>();
+    final ViewController controller = GetIt.I.get<ViewController>();
     final products = controller.getProductsListFromItems(itemsIndex);
 
     return SingleChildScrollView(

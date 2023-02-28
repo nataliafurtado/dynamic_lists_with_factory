@@ -1,4 +1,3 @@
-import 'package:dynamic_lists_with_factory/domain/entities/combo.dart';
 import 'package:dynamic_lists_with_factory/domain/entities/item.dart';
 import 'package:dynamic_lists_with_factory/domain/entities/product.dart';
 import 'package:dynamic_lists_with_factory/domain/use_case/get_combo_use_case.dart';
@@ -7,35 +6,32 @@ import 'package:dynamic_lists_with_factory/presentation/controllers/item_control
 import 'package:get_it/get_it.dart';
 import 'package:rx_notifier/rx_notifier.dart';
 
-class Controller {
-  final comboController = RxNotifier<ComboController?>(null);
-  final quantityOfCombos = RxNotifier<int>(1);
+class ViewController {
+  ViewController({
+    required this.getComboUseCase,
+  });
+  final GetComboUseCase getComboUseCase;
 
-  int get getQuantityOfCombos => quantityOfCombos.value;
+  late ComboController comboController = ComboController();
 
-  ComboController get getCombo => comboController.value!;
+  int get getQuantityOfCombos => comboController.quantityOfCombos.value;
 
-  RxList<ItemController> get getItems => comboController.value!.items;
+  ComboController get getCombo => comboController;
+
+  RxList<ItemController> get getItems => comboController.items;
 
   RxList<Product> getProductsListFromItems(int itemsIndex) {
-    return comboController.value!.items[itemsIndex].products;
+    return comboController.items[itemsIndex].products;
   }
 
   RxList<Product> getProducts(int itemIdex) =>
-      comboController.value!.items[itemIdex].products;
+      comboController.items[itemIdex].products;
 
-  ItemController getItem(int itemIdex) =>
-      comboController.value!.items[itemIdex];
+  ItemController getItem(int itemIdex) => comboController.items[itemIdex];
 
   init() {
-    final combo = GetComboUseCase()();
-    createObservables(combo);
-  }
-
-  createObservables(Combo combo) {
-    final newComboController = GetIt.I.get<ComboController>();
-
-    newComboController.items.addAll(
+    final combo = getComboUseCase();
+    comboController.items.addAll(
       combo.itemFromApi.map(
         (itemFromApi) {
           return itemToItemController(
@@ -44,8 +40,6 @@ class Controller {
         },
       ).toList(),
     );
-
-    comboController.value = newComboController;
   }
 
   ItemController itemToItemController(Item itemFromApi) {
@@ -58,34 +52,23 @@ class Controller {
   }
 
   changeQuantityOfCombos(int newQuantity) {
-    quantityOfCombos.value = newQuantity;
+    comboController.quantityOfCombos.value = newQuantity;
   }
 
   changeQuantityOfProduct(int itemIdex, int productIndex, int newQuantity) {
-    comboController.value!.items[itemIdex].products[productIndex] =
-        comboController.value!.items[itemIdex].products[productIndex]
-            .copyWith(quantity: newQuantity);
+    comboController.items[itemIdex].products[productIndex] =
+        comboController.items[itemIdex].products[productIndex].copyWith(
+      quantity: newQuantity,
+    );
   }
 
   int getQuantityItemsShouldBeSelected(itemsIndex) {
-    return comboController.value!.items[itemsIndex].quantityShouldBeSelected *
+    return comboController.items[itemsIndex].quantityShouldBeSelected *
         getQuantityOfCombos;
   }
 
-  int getQuantityProductsShouldBeSelected() {
-    final totalOfProductsByCombo = comboController.value!.items
-        .map(
-          (item) => item.quantityShouldBeSelected,
-        )
-        .reduce(
-          (value, current) => value + current,
-        );
-
-    return totalOfProductsByCombo * quantityOfCombos.value;
-  }
-
   int getQuantityItemsSelected(itemsIndex) {
-    return comboController.value!.items[itemsIndex].products
+    return comboController.items[itemsIndex].products
         .map(
           (product) => product.quantity,
         )
@@ -94,8 +77,20 @@ class Controller {
         );
   }
 
+  int getQuantityProductsShouldBeSelected() {
+    final totalOfProductsByCombo = comboController.items
+        .map(
+          (item) => item.quantityShouldBeSelected,
+        )
+        .reduce(
+          (value, current) => value + current,
+        );
+
+    return totalOfProductsByCombo * comboController.quantityOfCombos.value;
+  }
+
   int getQuantityProductsSelected() {
-    return comboController.value!.items
+    return comboController.items
         .map(
           (item) => item.products.map(
             (product) {
@@ -111,7 +106,7 @@ class Controller {
   }
 
   double getTotalToPaySelected() {
-    return comboController.value!.items
+    return comboController.items
         .map(
           (item) => item.products.map(
             (product) {
@@ -124,5 +119,26 @@ class Controller {
         .reduce(
           (value, current) => value + current,
         );
+  }
+
+  bool isAllProductsSelected() {
+    bool isAllSelected = true;
+    for (var i = 0; i < comboController.items.length; i++) {
+      final qtdShouldBeSelected =
+          comboController.items[i].quantityShouldBeSelected *
+              getQuantityOfCombos;
+
+      final qtdSelected = comboController.items[i].products
+          .map(
+            (prod) => prod.quantity,
+          )
+          .reduce(
+            (value, current) => value + current,
+          );
+      if (qtdSelected < qtdShouldBeSelected) {
+        isAllSelected = false;
+      }
+    }
+    return isAllSelected;
   }
 }

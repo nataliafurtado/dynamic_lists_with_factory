@@ -1,4 +1,4 @@
-import 'package:dynamic_lists_with_factory/presentation/controllers/controller.dart';
+import 'package:dynamic_lists_with_factory/presentation/controllers/view_controller.dart';
 import 'package:dynamic_lists_with_factory/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class ProductsCard extends StatelessWidget {
   final int itemsIndex;
   @override
   Widget build(BuildContext context) {
-    final Controller controller = GetIt.I.get<Controller>();
+    final ViewController controller = GetIt.I.get<ViewController>();
     final products = controller.getProductsListFromItems(itemsIndex);
     return Container(
       margin: const EdgeInsets.only(left: 20),

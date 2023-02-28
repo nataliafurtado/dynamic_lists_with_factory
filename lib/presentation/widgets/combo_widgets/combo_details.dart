@@ -1,4 +1,4 @@
-import 'package:dynamic_lists_with_factory/presentation/controllers/controller.dart';
+import 'package:dynamic_lists_with_factory/presentation/controllers/view_controller.dart';
 import 'package:dynamic_lists_with_factory/utils/constants.dart';
 import 'package:dynamic_lists_with_factory/presentation/widgets/add_quantity_widget.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ class ComboDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Controller controller = GetIt.I.get<Controller>();
+    final ViewController controller = GetIt.I.get<ViewController>();
     return RxBuilder(
       builder: (_) {
         return Column(

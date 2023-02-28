@@ -1,4 +1,4 @@
-import 'package:dynamic_lists_with_factory/presentation/controllers/controller.dart';
+import 'package:dynamic_lists_with_factory/presentation/controllers/view_controller.dart';
 import 'package:dynamic_lists_with_factory/init_instances.dart';
 import 'package:dynamic_lists_with_factory/presentation/widgets/combo_widgets/combo_widget.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    GetIt.I.get<Controller>().init();
+    GetIt.I.get<ViewController>().init();
   }
 
   @override

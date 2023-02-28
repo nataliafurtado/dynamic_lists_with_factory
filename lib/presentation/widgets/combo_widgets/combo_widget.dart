@@ -1,4 +1,4 @@
-import 'package:dynamic_lists_with_factory/presentation/controllers/controller.dart';
+import 'package:dynamic_lists_with_factory/presentation/controllers/view_controller.dart';
 import 'package:dynamic_lists_with_factory/utils/constants.dart';
 import 'package:dynamic_lists_with_factory/presentation/widgets/combo_widgets/button_widget.dart';
 import 'package:dynamic_lists_with_factory/presentation/widgets/combo_widgets/combo_details.dart';
@@ -12,7 +12,7 @@ class ComboWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Controller controller = GetIt.I.get<Controller>();
+    final ViewController controller = GetIt.I.get<ViewController>();
 
     return RxBuilder(
       builder: (_) {
