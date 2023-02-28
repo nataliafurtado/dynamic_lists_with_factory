@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-import 'package:Producdynamic_lists_with_factorytt/presentation/controllers/controller.dart';
-import 'package:Producdynamic_lists_with_factorytt/utils/constants.dart';
-import 'package:Producdynamic_lists_with_factorytt/presentation/widgets/products_widgets/products_list_widget.dart';
+import 'package:dynamic_lists_with_factory/presentation/controllers/controller.dart';
+import 'package:dynamic_lists_with_factory/utils/constants.dart';
+import 'package:dynamic_lists_with_factory/presentation/widgets/products_widgets/products_list_widget.dart';
 import 'package:rx_notifier/rx_notifier.dart';
 
 class ItemsCard extends StatelessWidget {

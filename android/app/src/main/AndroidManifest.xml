@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.Producdynamic_lists_with_factorytt">
+    package="com.example.dynamic_lists_with_factory">
    <application
-        android:label="Producdynamic_lists_with_factorytt"
+        android:label="dynamic_lists_with_factory"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

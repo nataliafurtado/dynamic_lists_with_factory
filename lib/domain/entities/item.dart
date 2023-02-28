@@ -1,4 +1,4 @@
-import 'package:Producdynamic_lists_with_factorytt/domain/entities/product.dart';
+import 'package:dynamic_lists_with_factory/domain/entities/product.dart';
 
 class Item {
   List<Product> productsFromApi;

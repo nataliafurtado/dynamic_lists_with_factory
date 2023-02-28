@@ -1,5 +1,5 @@
-import 'package:Producdynamic_lists_with_factorytt/presentation/controllers/controller.dart';
-import 'package:Producdynamic_lists_with_factorytt/presentation/widgets/items_widgets/items_card.dart';
+import 'package:dynamic_lists_with_factory/presentation/controllers/controller.dart';
+import 'package:dynamic_lists_with_factory/presentation/widgets/items_widgets/items_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 

@@ -1,8 +1,8 @@
-import 'package:Producdynamic_lists_with_factorytt/presentation/controllers/controller.dart';
-import 'package:Producdynamic_lists_with_factorytt/utils/constants.dart';
+import 'package:dynamic_lists_with_factory/presentation/controllers/controller.dart';
+import 'package:dynamic_lists_with_factory/utils/constants.dart';
 import 'package:flutter/material.dart';
 
-import 'package:Producdynamic_lists_with_factorytt/presentation/widgets/add_quantity_widget.dart';
+import 'package:dynamic_lists_with_factory/presentation/widgets/add_quantity_widget.dart';
 import 'package:get_it/get_it.dart';
 
 class ProductsCard extends StatelessWidget {

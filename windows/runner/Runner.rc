@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "Producdynamic_lists_with_factorytt" "\0"
+            VALUE "FileDescription", "dynamic_lists_with_factory" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "Producdynamic_lists_with_factorytt" "\0"
+            VALUE "InternalName", "dynamic_lists_with_factory" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "Producdynamic_lists_with_factorytt.exe" "\0"
-            VALUE "ProductName", "Producdynamic_lists_with_factorytt" "\0"
+            VALUE "OriginalFilename", "dynamic_lists_with_factory.exe" "\0"
+            VALUE "ProductName", "dynamic_lists_with_factory" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

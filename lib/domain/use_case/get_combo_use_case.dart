@@ -1,6 +1,6 @@
-import 'package:Producdynamic_lists_with_factorytt/domain/entities/combo.dart';
-import 'package:Producdynamic_lists_with_factorytt/domain/entities/item.dart';
-import 'package:Producdynamic_lists_with_factorytt/domain/entities/product.dart';
+import 'package:dynamic_lists_with_factory/domain/entities/combo.dart';
+import 'package:dynamic_lists_with_factory/domain/entities/item.dart';
+import 'package:dynamic_lists_with_factory/domain/entities/product.dart';
 
 class GetComboUseCase {
   Combo call() => Combo(

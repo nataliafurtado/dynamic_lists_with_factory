@@ -24,7 +24,11 @@ class AddQuantityWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           IconButton(
-            onPressed: () => onClick(quantity - 1),
+            onPressed: () {
+              if (quantity != 0) {
+                onClick(quantity - 1);
+              }
+            },
             icon: const Icon(Icons.remove),
           ),
           Text(quantity.toString()),

@@ -5,7 +5,7 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = Producdynamic_lists_with_factorytt
+PRODUCT_NAME = dynamic_lists_with_factory
 
 // The application's bundle identifier
 PRODUCT_BUNDLE_IDENTIFIER = com.example.factoryTest
