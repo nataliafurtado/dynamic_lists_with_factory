@@ -29,7 +29,7 @@ class ViewController {
 
   ItemController getItem(int itemIdex) => comboController.items[itemIdex];
 
-  init() {
+  void init() {
     final combo = getComboUseCase();
     comboController.items.addAll(
       combo.itemFromApi.map(
@@ -51,11 +51,12 @@ class ViewController {
     );
   }
 
-  changeQuantityOfCombos(int newQuantity) {
+  void changeQuantityOfCombos(int newQuantity) {
     comboController.quantityOfCombos.value = newQuantity;
   }
 
-  changeQuantityOfProduct(int itemIdex, int productIndex, int newQuantity) {
+  void changeQuantityOfProduct(
+      int itemIdex, int productIndex, int newQuantity) {
     comboController.items[itemIdex].products[productIndex] =
         comboController.items[itemIdex].products[productIndex].copyWith(
       quantity: newQuantity,
